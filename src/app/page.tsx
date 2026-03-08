@@ -37,10 +37,10 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="mailto:hello@rankhq.co"
+                href="tel:+15878049266"
                 className="rounded-full bg-[#1b140f] px-6 py-3 text-sm font-semibold text-white"
               >
-                Book a local SEO call
+                Call +1 (587) 804-9266
               </a>
               <Link
                 href="/blog"

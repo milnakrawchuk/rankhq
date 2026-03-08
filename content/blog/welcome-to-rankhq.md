@@ -8,8 +8,8 @@ tags:
   - editorial systems
   - content automation
 draft: false
-ctaLabel: "Book a strategy call"
-ctaHref: "mailto:hello@rankhq.co"
+ctaLabel: "Call RankHQ"
+ctaHref: "tel:+15878049266"
 sources:
   - "https://docs.openclaw.ai/cron/"
   - "https://docs.openclaw.ai/gateway/security"

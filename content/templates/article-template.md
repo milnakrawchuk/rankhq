@@ -7,8 +7,8 @@ author: "RankHQ Editorial"
 tags:
   - ""
 draft: true
-ctaLabel: "Book a strategy call"
-ctaHref: "mailto:hello@rankhq.co"
+ctaLabel: "Call RankHQ"
+ctaHref: "tel:+15878049266"
 sources: []
 ---
 
@@ -30,4 +30,4 @@ List the most likely failure modes.
 
 ## Final takeaway
 
-End with a practical next step and transition naturally into the CTA for a local SEO call.
+End with a practical next step and transition naturally into the CTA to call RankHQ.

@@ -5,8 +5,8 @@ export const siteConfig = {
   description:
     "SEO systems and search strategy for local service businesses that need more qualified calls.",
   defaultAuthor: "RankHQ Editorial",
-  ctaLabel: "Book a local SEO call",
-  ctaHref: "mailto:hello@rankhq.co",
+  ctaLabel: "Call RankHQ",
+  ctaHref: "tel:+15878049266",
   niche: "Local service business SEO",
   geography: "English-speaking local markets",
   socialImage: "/og.jpg",
