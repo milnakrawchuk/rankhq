@@ -51,6 +51,9 @@ const queued = rows.find(
   (row) =>
     row.status === "queued" &&
     row.city &&
+    !["general", "[city]", "your city", "city", "multiple"].includes(
+      row.city.trim().toLowerCase(),
+    ) &&
     row.service &&
     row.primary_keyword &&
     row.secondary_keywords &&

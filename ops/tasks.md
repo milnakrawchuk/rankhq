@@ -6,7 +6,7 @@
 
 ## Blocked
 
-- None yet.
+- Need target city or metro list from Milna before heartbeat can convert research into publishable queued topics.
 
 ## Completed
 

@@ -22,13 +22,20 @@ On each heartbeat:
    - look for terms related to `near me`, `best`, `cost`, `quote`, `emergency`, `same day`, `reviews`, `open now`, `repair`, `installation`, and city/service comparisons
    - avoid vague vanity topics
 4. Save research notes to `content/research/opportunities.md`.
-5. If you find a credible publishable opportunity, add a fully specified queued row to `content/topics/queue.csv`.
-6. Maintain `ops/tasks.md`:
+5. If you find a credible publishable opportunity, add a fully specified queued row to `content/topics/queue.csv` only when it includes a real city name.
+6. Never use placeholders or fake locality in queued topics:
+   - no `General`
+   - no `[city]`
+   - no `your city`
+   - no broad non-local placeholders
+   - if the city is unknown, keep the research note but do not queue the topic
+7. When a real city is missing, create a blocked task in `ops/tasks.md` asking for target metros or service areas instead of improvising.
+8. Maintain `ops/tasks.md`:
    - create follow-up tasks when something is blocked or needs human input
    - mark done tasks in the completed section when finished
-7. Append a short line to `ops/progress-log.md` only when something concrete happened:
+9. Append a short line to `ops/progress-log.md` only when something concrete happened:
    - researched a new opportunity
    - added a queue item
    - created a follow-up task
    - found a blocker that needs Milna
-8. If there is a blocker that requires the user, say so briefly in the heartbeat response. Otherwise keep the response concise.
+10. If there is a blocker that requires the user, say so briefly in the heartbeat response. Otherwise keep the response concise.
