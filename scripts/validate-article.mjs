@@ -19,12 +19,32 @@ if (!fs.existsSync(filePath)) {
 const raw = fs.readFileSync(filePath, "utf8");
 const { data, content } = matter(raw);
 
+function asList(value) {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item).trim()).filter(Boolean);
+  }
+
+  if (typeof value === "string") {
+    return value
+      .split(/[|,]/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
 const required = [
   ["title", data.title],
   ["description", data.description],
   ["publishedAt", data.publishedAt],
   ["ctaLabel", data.ctaLabel],
   ["ctaHref", data.ctaHref],
+  ["city", data.city],
+  ["service", data.service],
+  ["primaryKeyword", data.primaryKeyword],
+  ["searchIntent", data.searchIntent],
+  ["customerPattern", data.customerPattern],
 ];
 
 const missing = required.filter(([, value]) => !value);
@@ -46,8 +66,71 @@ if (!content.trim()) {
   process.exit(1);
 }
 
+if (content.trim().length < 2200) {
+  console.error("Article is too thin. Refusing to publish under 2200 characters.");
+  process.exit(1);
+}
+
+const bodyLower = content.toLowerCase();
+const city = String(data.city ?? "").trim();
+const service = String(data.service ?? "").trim();
+const primaryKeyword = String(data.primaryKeyword ?? "").trim();
+const mustInclude = asList(data.mustInclude);
+const secondaryKeywords = asList(data.secondaryKeywords);
+const sources = asList(data.sources);
+
+const requiredHeadings = [
+  "## Who is this for",
+  "## What people are actually searching",
+  "## What to include on the page",
+  "## Common mistakes",
+  "## Final takeaway",
+];
+
+const missingHeadings = requiredHeadings.filter((heading) => !content.includes(heading));
+
+if (missingHeadings.length > 0) {
+  console.error(`Missing required headings: ${missingHeadings.join(", ")}`);
+  process.exit(1);
+}
+
+if (!bodyLower.includes(city.toLowerCase())) {
+  console.error(`Article does not mention target city "${city}".`);
+  process.exit(1);
+}
+
+if (!bodyLower.includes(service.toLowerCase())) {
+  console.error(`Article does not mention target service "${service}".`);
+  process.exit(1);
+}
+
+if (!bodyLower.includes(primaryKeyword.toLowerCase())) {
+  console.error(`Article does not include primary keyword "${primaryKeyword}".`);
+  process.exit(1);
+}
+
+const missingMustInclude = mustInclude.filter(
+  (term) => !bodyLower.includes(term.toLowerCase()),
+);
+
+if (missingMustInclude.length > 0) {
+  console.error(
+    `Article is missing required terms: ${missingMustInclude.join(", ")}`,
+  );
+  process.exit(1);
+}
+
+if (secondaryKeywords.length < 3) {
+  console.error("Article must include at least 3 secondary keywords in frontmatter.");
+  process.exit(1);
+}
+
+if (sources.length < 2) {
+  console.error("Article must list at least 2 sources in frontmatter.");
+  process.exit(1);
+}
+
 const regulatedTerms = /\b(medical|legal|financial|investment|diagnose|treatment|lawsuit|tax advice)\b/i;
-const sources = Array.isArray(data.sources) ? data.sources : [];
 
 if (regulatedTerms.test(content) && sources.length === 0) {
   console.error(

@@ -1,6 +1,8 @@
 # Publish Log
 
-Use this log when a daily publish run is skipped or blocked.
+Use this log when a daily publish run is skipped, blocked, or completed.
 
 Format:
-- `YYYY-MM-DD`: reason skipped, missing inputs, or validation failure summary
+- `YYYY-MM-DD`: status and short reason or result summary
+
+- 2026-03-08: Published 'Local SEO Checklist for HVAC Companies'

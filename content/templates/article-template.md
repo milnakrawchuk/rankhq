@@ -4,25 +4,50 @@ description: ""
 publishedAt: ""
 updatedAt: ""
 author: "RankHQ Editorial"
+city: ""
+service: ""
+primaryKeyword: ""
+secondaryKeywords:
+  - ""
+  - ""
+  - ""
+searchIntent: ""
+customerPattern: ""
+mustInclude:
+  - ""
+  - ""
+sources:
+  - ""
+  - ""
 tags:
   - ""
 draft: true
 ctaLabel: "Call RankHQ"
 ctaHref: "tel:+15878049266"
-sources: []
 ---
 
 Write a direct introduction that frames the reader problem in plain English.
 
+This article must be written for a real city and a real service line.
+It must read like it understands what a local buyer is doing, not like a generic SEO explainer.
+Prefer search patterns with commercial or urgent intent over broad vanity topics.
+
 Target reader: owner or marketing lead at a local service business.
 
-## Why this matters
+## Who is this for
 
-Explain the business value of the topic in terms of calls, qualified leads, service-area visibility, or booked appointments.
+Name the city, the service, and the kind of business this article is for.
+Explain the exact buyer situation behind the query.
 
-## Main section
+## What people are actually searching
 
-Add concrete, non-generic guidance tied to local SEO execution.
+Explain the search behavior behind the primary keyword and secondary keywords.
+Cover what a buyer in this city is likely comparing, worrying about, or trying to confirm before calling.
+
+## What to include on the page
+
+Provide concrete recommendations for page structure, local proof, service details, CTA placement, and internal linking.
+Use the required terms from `mustInclude`.
 
 ## Common mistakes
 
